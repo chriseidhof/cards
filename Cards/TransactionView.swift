@@ -8,7 +8,10 @@ struct TransactionView: View {
 
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
-            Image(systemName: transaction.category.iconName)
+            RemoteImage(url: transaction.category.customIconURL)
+                .resizable()
+                .renderingMode(.template)
+                .aspectRatio(contentMode: .fit)
                 .frame(height: imageHeight)
                 .accessibilityHidden(true)
             VStack(alignment: .leading) {
