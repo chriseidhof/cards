@@ -29,5 +29,6 @@ struct LoadTransactions: View {
 
 #Preview {
     LoadTransactions()
+        .useStylesheet()
 }
 

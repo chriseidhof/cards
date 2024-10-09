@@ -4,6 +4,8 @@ import SwiftUI
 struct Transactions: View {
     var transactions: [CreditCardTransaction]
 
+    @Environment(\.stylesheet) private var stylesheet
+
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 16) {
@@ -13,10 +15,10 @@ struct Transactions: View {
                 .withDividers()
             }
             .padding()
-            .background(.white, in: .rect(cornerRadius: 8))
+            .background(stylesheet.listItemBackground, in: .rect(cornerRadius: 8))
             .padding()
         }
-        .background(.quaternary)
+        .background(stylesheet.listBackground)
     }
 }
 
@@ -36,4 +38,5 @@ extension View {
 
 #Preview {
     Transactions(transactions: sampleTransactions)
+        .useStylesheet()
 }

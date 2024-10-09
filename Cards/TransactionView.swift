@@ -6,6 +6,8 @@ struct TransactionView: View {
     @ScaledMetric var imageHeight: CGFloat = 16
     var transaction: CreditCardTransaction
 
+    @Environment(\.stylesheet.amountColor) private var amountColor
+
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             RemoteImage(url: transaction.category.customIconURL)
@@ -24,7 +26,7 @@ struct TransactionView: View {
             .lineLimit(1)
             .frame(maxWidth: .infinity, alignment: .leading)
             Text("\(transaction.price, format: .price)")
-                .foregroundStyle(.green)
+                .foregroundStyle(amountColor)
                 .font(.headline)
                 .layoutPriority(1)
         }
@@ -35,8 +37,10 @@ struct TransactionView: View {
 
 #Preview {
     TransactionView(transaction: sampleTransactions[0])
+        .useStylesheet()
 }
 
 #Preview {
     TransactionView(transaction: sampleTransactions[1])
+        .useStylesheet()
 }
