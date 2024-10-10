@@ -8,14 +8,18 @@ struct Transactions: View {
 
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 16) {
-                ForEach(transactions) { transaction in
-                    TransactionView(transaction: transaction)
+            VStack(spacing: 32) {
+                CardView()
+                    .accessibilityHidden(true)
+                LazyVStack(spacing: 16) {
+                    ForEach(transactions) { transaction in
+                        TransactionView(transaction: transaction)
+                    }
+                    .withDividers()
                 }
-                .withDividers()
+                .padding()
+                .background(stylesheet.listItemBackground, in: .rect(cornerRadius: 8))
             }
-            .padding()
-            .background(stylesheet.listItemBackground, in: .rect(cornerRadius: 8))
             .padding()
         }
         .background(stylesheet.listBackground)
