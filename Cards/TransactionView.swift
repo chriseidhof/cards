@@ -33,6 +33,9 @@ struct TransactionView: View {
         .foregroundStyle(transaction.state == .pending ? .secondary : .primary)
         .accessibilityElement(children: .combine)
         .accessibilityCustomContent("Category", transaction.category.rawValue)
+        .accessibilityCustomContent("Description", transaction.title)
+        .accessibilityCustomContent("Price", Text("\(transaction.price, format: .price)"))
+        .accessibilityCustomContent("Date", Text(transaction.date, formatter: dateFormatter))
     }
 }
 
