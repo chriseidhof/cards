@@ -36,6 +36,7 @@ struct TransactionView: View {
         .accessibilityCustomContent("Description", transaction.title)
         .accessibilityCustomContent("Price", Text("\(transaction.price, format: .price)"))
         .accessibilityCustomContent("Date", Text(transaction.date, formatter: dateFormatter))
+        .accessibilityInputLabels([transaction.title, transaction.category.rawValue])
     }
 }
 
