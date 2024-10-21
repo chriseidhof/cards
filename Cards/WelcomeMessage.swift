@@ -22,6 +22,9 @@ struct WelcomeMessage: View {
         .accessibilityAction(action: {
             isPresented = false
         }, label: { Text("Close") })
+        // This is nice for VoiceOver, but awkward for Voice Control as there
+        // is no labeled "close" button. So you might want to expose the texts
+        // as one element and the close button as another. See https://www.basbroek.nl/optimizing-assistive-technology
     }
 }
 
