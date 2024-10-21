@@ -41,6 +41,7 @@ struct OfferPicker: View {
             }
             .toggleStyle(MyToggleStyle())
         }
+        .accessibilityLabel("Categories")
         .scrollIndicators(.hidden)
         .animation(.default, value: selection)
     }
