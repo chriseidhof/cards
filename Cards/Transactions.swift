@@ -33,6 +33,7 @@ struct Transactions: View {
                 .padding()
                 .background(stylesheet.listItemBackground, in: .rect(cornerRadius: 8))
                 .drawingGroup()
+                .accessibilityLabel("Transactions")
             }
             .padding()
         }
