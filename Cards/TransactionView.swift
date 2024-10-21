@@ -32,6 +32,7 @@ struct TransactionView: View {
         }
         .foregroundStyle(transaction.state == .pending ? .secondary : .primary)
         .accessibilityElement(children: .combine)
+        .accessibilityCustomContent("Category", transaction.category.rawValue)
     }
 }
 
