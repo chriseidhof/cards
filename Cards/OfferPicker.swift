@@ -55,9 +55,6 @@ struct MyToggleStyle: ToggleStyle {
             .padding(.horizontal, padding)
             .background(Capsule().fill(Color.accentColor).opacity(configuration.isOn ? 1 : 0.2))
             .accessibilityValue(Text("Enabled"), isEnabled: configuration.isOn)
-            .accessibilityAction {
-                configuration.isOn.toggle()
-            }
             .onTapGesture {
                 configuration.isOn.toggle()
             }
